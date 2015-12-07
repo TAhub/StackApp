@@ -22,23 +22,40 @@
 
 @implementation OAuthViewController
 
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"] != nil)
+	{
+		//you already are logged in
+		
+		NSLog(@"Have a token!");
+		
+		[self performSegueWithIdentifier:@"giveMeABurger" sender:self];
+	}
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-	//add the web view
-	self.webView = [WKWebView new];
-	self.webView.frame = self.view.frame;
-	self.webView.navigationDelegate = self;
-	[self.view addSubview:self.webView];
 	
-	//make the url to travel to
-	NSString *urlString = [NSString stringWithFormat:@"%@client_id=%@&redirect_uri=%@", OAUTHV_BASEURL, OAUTHV_CLIENTID, OAUTHV_REDIRECTURI];
-	NSURL *url = [NSURL URLWithString:urlString];
-	NSURLRequest *request = [NSURLRequest requestWithURL:url];
-	
-	//load the url
-	[self.webView loadRequest:request];
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"] == nil)
+	{
+		//add the web view
+		self.webView = [WKWebView new];
+		self.webView.frame = self.view.frame;
+		self.webView.navigationDelegate = self;
+		[self.view addSubview:self.webView];
+		
+		//make the url to travel to
+		NSString *urlString = [NSString stringWithFormat:@"%@client_id=%@&redirect_uri=%@", OAUTHV_BASEURL, OAUTHV_CLIENTID, OAUTHV_REDIRECTURI];
+		NSURL *url = [NSURL URLWithString:urlString];
+		NSURLRequest *request = [NSURLRequest requestWithURL:url];
+		
+		//load the url
+		[self.webView loadRequest:request];
+	}
 }
 
 #pragma mark - web view delegate
@@ -55,10 +72,7 @@
 		
 		NSLog(@"Logged token!");
 		
-		if (self.completion)
-		{
-			self.completion();
-		}
+		[self performSegueWithIdentifier:@"giveMeABurger" sender:self];
 	}
 	
 	decisionHandler(WKNavigationActionPolicyAllow);

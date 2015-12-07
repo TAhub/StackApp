@@ -14,10 +14,12 @@
 #define HAMBURGER_SPEED 0.25
 #define HAMBURGER_TITLE_1 @"Detail"
 #define HAMBURGER_TITLE_2 @"Back"
+#define HAMBURGER_MEATS 2
 
 @interface HamburgerViewController ()
 
-@property (strong, nonatomic) UIViewController *meat;
+@property (strong, nonatomic) NSMutableArray *meats;
+@property (weak, nonatomic) UIViewController *meat;
 @property (strong, nonatomic) UIViewController *cheese;
 @property (strong, nonatomic) UIButton *button;
 
@@ -41,7 +43,16 @@
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"|-[button(>=%i)]", HAMBURGER_HEIGHT_BUTTON] options:0 metrics:nil views:dict]];
 	
 	//make the view controllers
-	self.meat = [self.storyboard instantiateViewControllerWithIdentifier:@"meat"];
+	self.meats = [NSMutableArray new];
+	for (int i = 0; i < HAMBURGER_MEATS; i++)
+	{
+		UIViewController *meat = [self.storyboard instantiateViewControllerWithIdentifier:[NSString stringWithFormat:@"meat%i", i+1]];
+		meat.view.frame = CGRectMake(0, HAMBURGER_HEIGHT, self.view.frame.size.width, self.view.frame.size.height - HAMBURGER_HEIGHT);
+		
+		[self.meats addObject:meat];
+		if (i == 0)
+			self.meat = meat;
+	}
 	self.cheese = [self.storyboard instantiateViewControllerWithIdentifier:@"cheese"];
 	
 	//make the gesture recognizer
@@ -65,7 +76,7 @@
 		}
 		break;
 	case UISwipeGestureRecognizerDirectionRight:
-		if (self.meat.parentViewController == self)
+		if (self.cheese.parentViewController != self)
 		{
 			[self pressButton];
 		}
@@ -74,38 +85,69 @@
 	}
 }
 
+-(int)activeMeat
+{
+	for (int i = 0; i < self.meats.count; i++)
+	{
+		if (self.meats[i] == self.meat)
+		{
+			return i;
+		}
+	}
+	return 0;
+}
+
+-(void)switchTo:(int)controllerNum
+{
+	if (self.cheese.view.layer.animationKeys.count > 0 || self.meat.view.layer.animationKeys.count > 0)
+	{
+		//it's already animating
+		return;
+	}
+	
+	if (self.meat != self.meats[controllerNum])
+	{
+		//switch out the meat
+		[self.meat willMoveToParentViewController:nil];
+		[self.meat.view removeFromSuperview];
+		[self.meat removeFromParentViewController];
+		
+		self.meat = self.meats[controllerNum];
+		[self addChildViewController:self.meat];
+		[self.view insertSubview:self.meat.view atIndex:0];
+		[self.meat didMoveToParentViewController:self];
+		
+		[self pressButton];
+	}
+}
+
 -(void)pressButton
 {
-	UIViewController *m = self.meat;
 	UIViewController *c = self.cheese;
 	UIView *v = self.view;
 	UIButton *b = self.button;
 	
-	if (c.view.layer.animationKeys.count > 0 || m.view.layer.animationKeys.count > 0)
+	if (c.view.layer.animationKeys.count > 0 || self.meat.view.layer.animationKeys.count > 0)
 	{
 		//it's already animating
 		return;
 	}
 	
 	//switch between views
-	if (self.meat.parentViewController == self)
+	if (self.cheese.parentViewController != self)
 	{
 		//switch to the cheese
 		
-		[m willMoveToParentViewController:nil];
-		
 		[self addChildViewController:c];
-		c.view.frame = CGRectMake(-v.frame.size.width, HAMBURGER_HEIGHT, v.frame.size.width, v.frame.size.height - HAMBURGER_HEIGHT);
+		c.view.frame = CGRectMake(-v.frame.size.width, HAMBURGER_HEIGHT, v.frame.size.width / 2, v.frame.size.height - HAMBURGER_HEIGHT);
 		[v addSubview:c.view];
 		[c didMoveToParentViewController:self];
 		
 		[UIView animateWithDuration:HAMBURGER_SPEED animations:^(void)
 		{
-			c.view.frame = CGRectMake(0, HAMBURGER_HEIGHT, v.frame.size.width, v.frame.size.height - HAMBURGER_HEIGHT);
+			c.view.frame = CGRectMake(0, HAMBURGER_HEIGHT, v.frame.size.width / 2, v.frame.size.height - HAMBURGER_HEIGHT);
 		} completion:^(BOOL success)
 		{
-			[m.view removeFromSuperview];
-			[m removeFromParentViewController];
 			[b setTitle:HAMBURGER_TITLE_2 forState:UIControlStateNormal];
 		}];
 		
@@ -116,15 +158,9 @@
 		
 		[c willMoveToParentViewController:nil];
 		
-		[self addChildViewController:m];
-		m.view.frame = CGRectMake(0, HAMBURGER_HEIGHT, v.frame.size.width, v.frame.size.height - HAMBURGER_HEIGHT);
-		[v addSubview:m.view];
-		[v sendSubviewToBack:m.view];
-		[m didMoveToParentViewController:self];
-		
 		[UIView animateWithDuration:HAMBURGER_SPEED animations:^(void)
 		 {
-			 c.view.frame = CGRectMake(-v.frame.size.width, HAMBURGER_HEIGHT, v.frame.size.width, v.frame.size.height - HAMBURGER_HEIGHT);
+			 c.view.frame = CGRectMake(-v.frame.size.width, HAMBURGER_HEIGHT, v.frame.size.width / 2, v.frame.size.height - HAMBURGER_HEIGHT);
 		 } completion:^(BOOL success)
 		 {
 			 [c.view removeFromSuperview];
@@ -140,7 +176,6 @@
 	
 	//the meat should be displayed, to start with
 	[self addChildViewController:self.meat];
-	self.meat.view.frame = CGRectMake(0, HAMBURGER_HEIGHT, self.view.frame.size.width, self.view.frame.size.height - HAMBURGER_HEIGHT);
 	[self.view addSubview:self.meat.view];
 	[self.meat didMoveToParentViewController:self];
 }

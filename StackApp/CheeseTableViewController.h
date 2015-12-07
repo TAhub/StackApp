@@ -1,5 +1,5 @@
 //
-//  OAuthViewController.h
+//  CheeseTableViewController.h
 //  StackApp
 //
 //  Created by Theodore Abshire on 12/7/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OAuthViewController : UIViewController
+@interface CheeseTableViewController : UITableViewController
 
 @end

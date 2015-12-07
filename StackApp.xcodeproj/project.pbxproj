@@ -15,6 +15,7 @@
 		E45CB1FB1C162C5B003C6E0B /* HamburgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB1FA1C162C5B003C6E0B /* HamburgerViewController.m */; };
 		E45CB1FE1C163D84003C6E0B /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB1FD1C163D84003C6E0B /* OAuthViewController.m */; };
 		E45CB2011C164722003C6E0B /* Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB2001C164722003C6E0B /* Errors.m */; };
+		E45CB2041C164EDC003C6E0B /* CheeseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB2031C164EDC003C6E0B /* CheeseTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		E45CB1FD1C163D84003C6E0B /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		E45CB1FF1C1645F3003C6E0B /* Errors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Errors.h; sourceTree = "<group>"; };
 		E45CB2001C164722003C6E0B /* Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Errors.m; sourceTree = "<group>"; };
+		E45CB2021C164EDC003C6E0B /* CheeseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheeseTableViewController.h; sourceTree = "<group>"; };
+		E45CB2031C164EDC003C6E0B /* CheeseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheeseTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 		E45CB1F61C162C1C003C6E0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E45CB2021C164EDC003C6E0B /* CheeseTableViewController.h */,
+				E45CB2031C164EDC003C6E0B /* CheeseTableViewController.m */,
 				E45CB1FC1C163D84003C6E0B /* OAuthViewController.h */,
 				E45CB1FD1C163D84003C6E0B /* OAuthViewController.m */,
 				E45CB1F91C162C5B003C6E0B /* HamburgerViewController.h */,
@@ -185,6 +190,7 @@
 			files = (
 				E45CB2011C164722003C6E0B /* Errors.m in Sources */,
 				E45CB1FE1C163D84003C6E0B /* OAuthViewController.m in Sources */,
+				E45CB2041C164EDC003C6E0B /* CheeseTableViewController.m in Sources */,
 				E45CB1E41C162AF9003C6E0B /* AppDelegate.m in Sources */,
 				E45CB1E11C162AF9003C6E0B /* main.m in Sources */,
 				E45CB1FB1C162C5B003C6E0B /* HamburgerViewController.m in Sources */,

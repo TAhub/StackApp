@@ -10,4 +10,7 @@
 
 @interface HamburgerViewController : UIViewController
 
+-(void)switchTo:(int)controllerNum;
+-(int)activeMeat;
+
 @end
