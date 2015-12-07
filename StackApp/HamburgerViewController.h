@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HamburgerViewController.h
 //  StackApp
 //
 //  Created by Theodore Abshire on 12/7/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface HamburgerViewController : UIViewController
 
 @end
-
