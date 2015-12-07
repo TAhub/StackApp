@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="808" y="303"/>
         </scene>
-        <!--View Controller-->
+        <!--Auth View Controller-->
         <scene sceneID="gwc-R4-YpK">
             <objects>
-                <viewController storyboardIdentifier="cheese" id="krt-E6-BZG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cheese" id="krt-E6-BZG" customClass="OAuthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PoT-Sm-1Qb"/>
                         <viewControllerLayoutGuide type="bottom" id="kd1-Vp-pga"/>
