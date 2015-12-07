@@ -41,11 +41,8 @@
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"|-[button(>=%i)]", HAMBURGER_HEIGHT_BUTTON] options:0 metrics:nil views:dict]];
 	
 	//make the view controllers
-	self.meat = [UIViewController new];
-	self.cheese = [UIViewController new];
-	
-	self.meat.view.backgroundColor = [UIColor brownColor];
-	self.cheese.view.backgroundColor = [UIColor yellowColor];
+	self.meat = [self.storyboard instantiateViewControllerWithIdentifier:@"meat"];
+	self.cheese = [self.storyboard instantiateViewControllerWithIdentifier:@"cheese"];
 	
 	//make the gesture recognizer
 	UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(slideDetect:)];

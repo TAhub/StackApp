@@ -24,5 +24,43 @@
             </objects>
             <point key="canvasLocation" x="182" y="303"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="HOD-35-2Ky">
+            <objects>
+                <viewController storyboardIdentifier="meat" id="6gX-Kr-TsU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fjz-5b-IAZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="6xW-3u-jKC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0cP-DQ-6j5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.50064504403567101" blue="0.17187114344534449" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHi-8R-O4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808" y="303"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gwc-R4-YpK">
+            <objects>
+                <viewController storyboardIdentifier="cheese" id="krt-E6-BZG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PoT-Sm-1Qb"/>
+                        <viewControllerLayoutGuide type="bottom" id="kd1-Vp-pga"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Njt-Lw-IPh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.95159968220636126" blue="0.11518783916779518" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4D4-ac-LCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="303"/>
+        </scene>
     </scenes>
 </document>
