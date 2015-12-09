@@ -24,8 +24,10 @@
     [super viewDidLoad];
 	
 	self.table.dataSource = self;
-	self.field.delegate = self;
+	self.table.estimatedRowHeight = 100;
+	self.table.rowHeight = UITableViewAutomaticDimension;
 	[self.table registerNib:[UINib nibWithNibName:@"QuestionTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+	self.field.delegate = self;
 }
 
 #pragma mark - table view
@@ -64,10 +66,14 @@
 			NSLog(@"Successful search!");
 			
 			weakSelf.questions = [NSMutableArray new];
-			for (NSDictionary *JSON in (NSDictionary *)data)
-			{
-				[weakSelf.questions addObject:[[Question alloc] initFrom:JSON]];
-			}
+			NSDictionary *items = ((NSDictionary *)data)[@"items"];
+			if (items)
+				for (NSDictionary *item in items)
+				{
+					Question *q = [[Question alloc] initFrom:item];
+					if (q)
+						[weakSelf.questions addObject:q];
+				}
 			
 			[weakSelf.table reloadData];
 		}

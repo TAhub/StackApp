@@ -25,10 +25,13 @@
 	return self;
 }
 
--(nonnull id)initFrom:(NSDictionary *)JSON
+-(nullable id)initFrom:(NSDictionary *)JSON
 {
 	if (self = [super init])
 	{
+		if (JSON == nil)
+			return nil;
+		
 		//initialize here
 		_title = (NSString *)JSON[@"title"];
 		_owner = [[User alloc] initFrom:(NSDictionary *)JSON[@"owner"]];

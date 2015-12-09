@@ -26,14 +26,17 @@
 	return self;
 }
 
--(nonnull id)initFrom:(NSDictionary *)JSON
+-(nullable id)initFrom:(NSDictionary *)JSON
 {
 	if (self = [super init])
 	{
+		if (JSON == nil)
+			return nil;
+		
 		//initialize here
 		_displayName = JSON[@"display_name"];
-		_profileImageURL = JSON[@"profile_image"];
-		_link = JSON[@"link"];
+		_profileImageURL = [[NSURL alloc] initWithString:JSON[@"profile_image"]];
+		_link = [[NSURL alloc] initWithString:JSON[@"link"]];
 		_reputation = (int)JSON[@"reputation"];
 		_userID = (int)JSON[@"user_id"];
 		_acceptRate = (int)JSON[@"accept_rate"];

@@ -11,13 +11,13 @@
 @interface Question: NSObject
 
 @property (strong, readonly, nonnull) NSString *title;
-@property (strong, readonly, nonnull) User *owner;
+@property (strong, readonly, nullable) User *owner;
 @property int questionID;
 @property int viewCount;
 @property int score;
 @property BOOL isAnswered;
 
--(nonnull id)initWithTitle:(NSString* _Nonnull)title owner:(User* _Nonnull)owner questionID:(int)questionID viewCount:(int)viewCount score:(int)score isAnswered:(BOOL)isAnswered;
--(nonnull id)initFrom:(NSDictionary* _Nonnull)JSON;
+-(nonnull id)initWithTitle:(NSString* _Nonnull)title owner:(User* _Nullable)owner questionID:(int)questionID viewCount:(int)viewCount score:(int)score isAnswered:(BOOL)isAnswered;
+-(nullable id)initFrom:(NSDictionary* _Nullable)JSON;
 
 @end

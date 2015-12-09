@@ -20,6 +20,6 @@
 @property int acceptRate;
 
 -(nonnull id)initWithDisplayName:(NSString* _Nonnull) displayName profileImageURL:(NSURL* _Nonnull)profileImageURL link:(NSURL* _Nonnull)link reputation:(int)reputation userID:(int)userID acceptRate:(int)acceptRate;
--(nonnull id)initFrom:(NSDictionary* _Nonnull)JSON;
+-(nullable id)initFrom:(NSDictionary* _Nullable)JSON;
 
 @end
