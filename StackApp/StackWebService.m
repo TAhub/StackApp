@@ -10,9 +10,14 @@
 #import "AFNetworking.h"
 #import "Errors.h"
 
+#define STACKWEB_KEY @"mZk4DiHnb8zTJ8JYwl*)iQ(("
+#define STACKWEB_SITE @"stackoverflow"
+
 @interface StackWebService()
 
 @property dispatch_group_t imageGroup;
+@property int orderI;
+@property int sortI;
 
 @end
 
@@ -25,6 +30,8 @@
 	dispatch_once(&onceToken, ^{
 		service = [[self alloc] init];
 		service.imageGroup = dispatch_group_create();
+		service.orderI = 0;
+		service.sortI = 0;
 	});
 	return service;
 }
@@ -120,19 +127,67 @@
 	});
 }
 
+-(NSString *)sortType
+{
+	switch(self.sortI)
+	{
+	case 0: return @"activity";
+	case 1: return @"votes";
+	default: return @"creation";
+	}
+}
+-(NSString *)orderType
+{
+	switch(self.orderI)
+	{
+	case 0: return @"desc";
+	default: return @"asc";
+	}
+}
+-(void)nextSort
+{
+	self.sortI = (self.sortI + 1) % 3;
+}
+-(void)nextOrder
+{
+	self.orderI = (self.orderI + 1) % 2;
+}
+
+-(void)myQuestionsWithCompletion:(kDictionaryCompletion)completion
+{
+	NSString *searchString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/me/questions"];
+	NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:@"token"];
+	
+	NSMutableDictionary *parameters = [NSMutableDictionary new];
+	[parameters setObject:[self sortType] forKey:@"sort"];
+	[parameters setObject:[self orderType] forKey:@"order"];
+	[parameters setObject:token forKey:@"access_token"];
+	[parameters setObject:STACKWEB_SITE forKey:@"site"];
+	[parameters setObject:STACKWEB_KEY forKey:@"key"];
+	
+	[self getRequestWithURL:searchString parameters:parameters withCompletion:
+	 ^(NSData* _Nullable data, NSError* _Nullable error){
+		 if (error == nil)
+		 {
+			 NSDictionary *dictionary = (NSDictionary *)data;
+			 completion(dictionary, nil);
+		 }
+		 else
+			 completion(nil, error);
+	 }];
+}
+
 -(void)search:(NSString *)searchTerm pageNumber:(int)pageNumber withCompletion:(kDictionaryCompletion)completion
 {
 	NSString *searchString = @"https://api.stackexchange.com/2.2/search";
-	NSString *sortString = @"votes";
-	NSString *orderString = @"asc";
 	NSString *pageNumberString = (pageNumber > 0 ? [NSString stringWithFormat:@"%d", pageNumber] : @"1");
 	
 	NSMutableDictionary *parameters = [NSMutableDictionary new];
 	[parameters setObject:pageNumberString forKey:@"page"];
-	[parameters setObject:sortString forKey:@"sort"];
-	[parameters setObject:orderString forKey:@"order"];
+	[parameters setObject:[self sortType] forKey:@"sort"];
+	[parameters setObject:[self orderType] forKey:@"order"];
 	[parameters setObject:searchTerm forKey:@"intitle"];
-	[parameters setObject:@"stackoverflow" forKey:@"site"];
+	[parameters setObject:STACKWEB_SITE forKey:@"site"];
 	
 	[self getRequestWithURL:searchString parameters:parameters withCompletion:
 	^(NSData* _Nullable data, NSError* _Nullable error){

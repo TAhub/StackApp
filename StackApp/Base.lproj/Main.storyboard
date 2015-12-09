@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="994" y="303"/>
         </scene>
-        <!--View Controller-->
+        <!--My Questions View Controller-->
         <scene sceneID="q0X-Ti-D1E">
             <objects>
-                <viewController storyboardIdentifier="meat2" id="WPM-4e-c3u" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="meat2" id="WPM-4e-c3u" customClass="MyQuestionsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="okM-f2-zaj"/>
                         <viewControllerLayoutGuide type="bottom" id="Sa0-Xn-Eja"/>
@@ -58,9 +58,25 @@
                     <view key="view" contentMode="scaleToFill" id="nU4-H0-Shq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RRk-Rj-96c">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.7730747983033891" blue="0.76387351408034032" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="RRk-Rj-96c" firstAttribute="height" secondItem="nU4-H0-Shq" secondAttribute="height" id="GtS-Sl-9K9"/>
+                            <constraint firstItem="RRk-Rj-96c" firstAttribute="centerY" secondItem="nU4-H0-Shq" secondAttribute="centerY" id="T1a-Se-Kiz"/>
+                            <constraint firstItem="RRk-Rj-96c" firstAttribute="width" secondItem="nU4-H0-Shq" secondAttribute="width" id="Vgx-jV-yJF"/>
+                            <constraint firstItem="RRk-Rj-96c" firstAttribute="centerX" secondItem="nU4-H0-Shq" secondAttribute="centerX" id="umn-Fe-2oW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="RRk-Rj-96c" id="frD-L7-JF6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ssh-wd-LHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +94,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8o8-hy-s4a">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8o8-hy-s4a">
                                 <rect key="frame" x="0.0" y="66" width="600" height="526"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

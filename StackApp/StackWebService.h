@@ -26,5 +26,11 @@ typedef void (^kImageFinishCompletion)();
 -(void)postRequestWithURL:(NSString* _Nonnull)url parameters:(NSDictionary* _Nullable)parameters withCompletion:(kDataCompletion _Nonnull)completionHandler;
 
 -(void)search:(NSString *_Nonnull)searchTerm pageNumber:(int)pageNumber withCompletion:(kDictionaryCompletion _Nonnull)completion;
+-(void)myQuestionsWithCompletion:(kDictionaryCompletion _Nonnull)completion;
+
+-(nonnull NSString *)sortType;
+-(nonnull NSString *)orderType;
+-(void)nextSort;
+-(void)nextOrder;
 
 @end
