@@ -10,6 +10,7 @@
 
 @interface HamburgerViewController : UIViewController
 
+@property (weak, nonatomic) UIViewController *meat;
 -(void)switchTo:(int)controllerNum;
 -(int)activeMeat;
 

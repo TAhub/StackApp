@@ -32,7 +32,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	
+	[self reloadMy];
+}
+
+-(void)reloadMy
+{
 	//load questions
 	__weak typeof(self) weakSelf = self;
 	

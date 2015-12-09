@@ -11,5 +11,6 @@
 @interface MyQuestionsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
+-(void)reloadMy;
 
 @end

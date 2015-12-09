@@ -10,4 +10,8 @@
 
 @interface CheeseTableViewController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *sortLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderLabel;
+
+
 @end

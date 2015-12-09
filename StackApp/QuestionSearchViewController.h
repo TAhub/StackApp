@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UITextField *field;
+-(void)reloadSearch;
 
 @end

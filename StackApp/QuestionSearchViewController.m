@@ -53,7 +53,12 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	[self.field resignFirstResponder];
-	
+	[self reloadSearch];
+	return true;
+}
+
+-(void)reloadSearch
+{
 	NSLog(@"Searching...");
 	
 	//search for it!
@@ -91,8 +96,6 @@
 			NSLog(@"%@", error);
 		}
 	}];
-	
-	return true;
 }
 
 @end

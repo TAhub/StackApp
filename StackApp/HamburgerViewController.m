@@ -19,7 +19,6 @@
 @interface HamburgerViewController ()
 
 @property (strong, nonatomic) NSMutableArray *meats;
-@property (weak, nonatomic) UIViewController *meat;
 @property (strong, nonatomic) UIViewController *cheese;
 @property (strong, nonatomic) UIButton *button;
 
