@@ -10,6 +10,12 @@
 #import "AFNetworking.h"
 #import "Errors.h"
 
+@interface StackWebService()
+
+@property dispatch_group_t imageGroup;
+
+@end
+
 @implementation StackWebService
 
 +(nonnull id)sharedService
@@ -18,8 +24,17 @@
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		service = [[self alloc] init];
+		service.imageGroup = dispatch_group_create();
 	});
 	return service;
+}
+
+-(void)registerImageFinish:(kImageFinishCompletion)completion
+{
+	dispatch_group_notify(self.imageGroup, dispatch_get_main_queue(),
+	^{
+		completion();
+	});
 }
 
 -(void)setupReachability:(AFHTTPRequestOperationManager*)manager
@@ -75,8 +90,12 @@
 
 -(void)fetchImageInBackgroundFromURL:(NSURL *)url completionHandler:(kImageCompletion)completionHandler
 {
+	__weak typeof(self) weakSelf = self;
+	
 	dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
 	dispatch_async(q, ^{
+		dispatch_group_enter(weakSelf.imageGroup);
+		
 		NSError *error;
 		NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
 		
@@ -96,6 +115,8 @@
 			completionHandler(nil, error);
 			return;
 		});
+		
+		dispatch_group_leave(weakSelf.imageGroup);
 	});
 }
 

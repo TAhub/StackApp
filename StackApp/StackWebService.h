@@ -13,12 +13,15 @@
 typedef void (^kImageCompletion)(UIImage * _Nullable data , NSError  * _Nullable  error);
 typedef void (^kDataCompletion)(NSData * _Nullable data , NSError  * _Nullable  error);
 typedef void (^kDictionaryCompletion)(NSDictionary * _Nullable data , NSError  * _Nullable  error);
+typedef void (^kImageFinishCompletion)();
 
 @interface StackWebService: NSObject
 
 +(nonnull id)sharedService;
 
 -(void)fetchImageInBackgroundFromURL:(NSURL* _Nonnull)url completionHandler:(kImageCompletion _Nonnull)completionHandler;
+-(void)registerImageFinish:(kImageFinishCompletion _Nonnull)completion;
+
 -(void)getRequestWithURL:(NSString* _Nonnull)url parameters:(NSDictionary* _Nullable)parameters withCompletion:(kDataCompletion _Nonnull)completionHandler;
 -(void)postRequestWithURL:(NSString* _Nonnull)url parameters:(NSDictionary* _Nullable)parameters withCompletion:(kDataCompletion _Nonnull)completionHandler;
 

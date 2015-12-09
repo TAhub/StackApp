@@ -76,6 +76,15 @@
 				}
 			
 			[weakSelf.table reloadData];
+			[weakSelf.table layoutIfNeeded];
+			
+			[[StackWebService sharedService] registerImageFinish:
+			 ^{
+				 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Images done loading!" message:@"They're here! Amazing!" preferredStyle:UIAlertControllerStyleAlert];
+				 UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+				 [alert addAction:ok];
+				 [weakSelf presentViewController:alert animated:YES completion:nil];
+			 }];
 		}
 		else
 		{
