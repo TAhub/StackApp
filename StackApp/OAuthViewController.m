@@ -66,8 +66,10 @@
 	
 	if ([url.description containsString:@"access_token"])
 	{
-		NSArray *components = [url.description componentsSeparatedByString:@"="];
-		NSString *token = components.lastObject;
+		NSArray *components1 = [url.description componentsSeparatedByString:@"="];
+		NSString *tPart1 = [components1 objectAtIndex:(components1.count - 2)];
+		NSArray *components2 = [tPart1 componentsSeparatedByString:@"&"];
+		NSString *token = components2.firstObject;
 		[[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
 		
 		NSLog(@"Logged token!");
