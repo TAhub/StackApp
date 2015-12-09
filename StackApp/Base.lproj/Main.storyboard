@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="1612" y="-351"/>
         </scene>
-        <!--View Controller-->
+        <!--Question Search View Controller-->
         <scene sceneID="HOD-35-2Ky">
             <objects>
-                <viewController storyboardIdentifier="meat1" id="6gX-Kr-TsU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="meat1" id="6gX-Kr-TsU" customClass="QuestionSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fjz-5b-IAZ"/>
                         <viewControllerLayoutGuide type="bottom" id="6xW-3u-jKC"/>
@@ -77,9 +77,35 @@
                     <view key="view" contentMode="scaleToFill" id="0cP-DQ-6j5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8o8-hy-s4a">
+                                <rect key="frame" x="0.0" y="66" width="600" height="526"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-U5-JIg">
+                                <rect key="frame" x="0.0" y="28" width="600" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.50064504403567101" blue="0.17187114344534449" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xbk-U5-JIg" firstAttribute="width" secondItem="0cP-DQ-6j5" secondAttribute="width" id="7yM-T7-gDS"/>
+                            <constraint firstItem="8o8-hy-s4a" firstAttribute="width" secondItem="0cP-DQ-6j5" secondAttribute="width" id="DJ6-st-rKP"/>
+                            <constraint firstItem="Xbk-U5-JIg" firstAttribute="top" secondItem="Fjz-5b-IAZ" secondAttribute="bottom" constant="8" symbolic="YES" id="eUb-VI-b33"/>
+                            <constraint firstItem="6xW-3u-jKC" firstAttribute="top" secondItem="8o8-hy-s4a" secondAttribute="bottom" constant="8" symbolic="YES" id="idF-Qg-yzv"/>
+                            <constraint firstItem="8o8-hy-s4a" firstAttribute="centerX" secondItem="0cP-DQ-6j5" secondAttribute="centerX" id="jEl-Wr-Na1"/>
+                            <constraint firstItem="8o8-hy-s4a" firstAttribute="top" secondItem="Xbk-U5-JIg" secondAttribute="bottom" constant="8" symbolic="YES" id="l9Y-3u-FLi"/>
+                            <constraint firstItem="Xbk-U5-JIg" firstAttribute="centerX" secondItem="0cP-DQ-6j5" secondAttribute="centerX" id="wkB-xf-b4C"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="field" destination="Xbk-U5-JIg" id="sa4-i4-PO2"/>
+                        <outlet property="table" destination="8o8-hy-s4a" id="k47-tT-2ZP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHi-8R-O4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +130,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Controller 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AKa-j6-KjD">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Question Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AKa-j6-KjD">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -124,7 +150,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Controller 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gmg-qB-qBo">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gmg-qB-qBo">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>

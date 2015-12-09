@@ -12,10 +12,11 @@ extern NSString *const kStackAppErrorDomain;
 
 typedef enum:NSUInteger
 {
-	BadJSON,
-	ConnectionDown,
-	TooManyAttempts,
-	InvalidParameter,
-	NeedAuthentication,
-	GeneralError
+	StackAppFailedToLoadImage,
+	StackAppBadJSON,
+	StackAppConnectionDown,
+	StackAppTooManyAttempts,
+	StackAppInvalidParameter,
+	StackAppNeedAuthentication,
+	StackAppGeneralError
 } StackAppErrorCodes;

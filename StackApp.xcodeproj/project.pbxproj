@@ -17,6 +17,12 @@
 		E45CB1FE1C163D84003C6E0B /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB1FD1C163D84003C6E0B /* OAuthViewController.m */; };
 		E45CB2011C164722003C6E0B /* Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB2001C164722003C6E0B /* Errors.m */; };
 		E45CB2041C164EDC003C6E0B /* CheeseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB2031C164EDC003C6E0B /* CheeseTableViewController.m */; };
+		E45CB2071C178E14003C6E0B /* QuestionSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB2061C178E14003C6E0B /* QuestionSearchViewController.m */; };
+		E45CB2091C179149003C6E0B /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB2081C179149003C6E0B /* Question.m */; };
+		E45CB20B1C179158003C6E0B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB20A1C179158003C6E0B /* User.m */; };
+		E45CB2111C1795DA003C6E0B /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB20F1C1795DA003C6E0B /* QuestionTableViewCell.m */; };
+		E45CB2121C1795DA003C6E0B /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E45CB2101C1795DA003C6E0B /* QuestionTableViewCell.xib */; };
+		E45CB2151C1797B8003C6E0B /* StackWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = E45CB2141C1797B8003C6E0B /* StackWebService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,17 @@
 		E45CB2001C164722003C6E0B /* Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Errors.m; sourceTree = "<group>"; };
 		E45CB2021C164EDC003C6E0B /* CheeseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheeseTableViewController.h; sourceTree = "<group>"; };
 		E45CB2031C164EDC003C6E0B /* CheeseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheeseTableViewController.m; sourceTree = "<group>"; };
+		E45CB2051C178E14003C6E0B /* QuestionSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSearchViewController.h; sourceTree = "<group>"; };
+		E45CB2061C178E14003C6E0B /* QuestionSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSearchViewController.m; sourceTree = "<group>"; };
+		E45CB2081C179149003C6E0B /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		E45CB20A1C179158003C6E0B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E45CB20C1C179161003C6E0B /* Question.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		E45CB20D1C179168003C6E0B /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E45CB20E1C1795DA003C6E0B /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
+		E45CB20F1C1795DA003C6E0B /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTableViewCell.m; sourceTree = "<group>"; };
+		E45CB2101C1795DA003C6E0B /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
+		E45CB2131C1797AD003C6E0B /* StackWebService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackWebService.h; sourceTree = "<group>"; };
+		E45CB2141C1797B8003C6E0B /* StackWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackWebService.m; sourceTree = "<group>"; };
 		F4E63530127DEC9142280E07 /* Pods-StackApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StackApp/Pods-StackApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +130,8 @@
 		E45CB1F61C162C1C003C6E0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E45CB2051C178E14003C6E0B /* QuestionSearchViewController.h */,
+				E45CB2061C178E14003C6E0B /* QuestionSearchViewController.m */,
 				E45CB2021C164EDC003C6E0B /* CheeseTableViewController.h */,
 				E45CB2031C164EDC003C6E0B /* CheeseTableViewController.m */,
 				E45CB1FC1C163D84003C6E0B /* OAuthViewController.h */,
@@ -128,6 +147,9 @@
 		E45CB1F71C162C20003C6E0B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E45CB20E1C1795DA003C6E0B /* QuestionTableViewCell.h */,
+				E45CB20F1C1795DA003C6E0B /* QuestionTableViewCell.m */,
+				E45CB2101C1795DA003C6E0B /* QuestionTableViewCell.xib */,
 				E45CB1E81C162AF9003C6E0B /* Main.storyboard */,
 			);
 			name = View;
@@ -136,6 +158,12 @@
 		E45CB1F81C162C23003C6E0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E45CB2131C1797AD003C6E0B /* StackWebService.h */,
+				E45CB2141C1797B8003C6E0B /* StackWebService.m */,
+				E45CB20C1C179161003C6E0B /* Question.h */,
+				E45CB2081C179149003C6E0B /* Question.m */,
+				E45CB20D1C179168003C6E0B /* User.h */,
+				E45CB20A1C179158003C6E0B /* User.m */,
 				E45CB1FF1C1645F3003C6E0B /* Errors.h */,
 				E45CB2001C164722003C6E0B /* Errors.m */,
 			);
@@ -203,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E45CB1EF1C162AF9003C6E0B /* LaunchScreen.storyboard in Resources */,
+				E45CB2121C1795DA003C6E0B /* QuestionTableViewCell.xib in Resources */,
 				E45CB1EC1C162AF9003C6E0B /* Assets.xcassets in Resources */,
 				E45CB1EA1C162AF9003C6E0B /* Main.storyboard in Resources */,
 			);
@@ -264,9 +293,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E45CB2011C164722003C6E0B /* Errors.m in Sources */,
+				E45CB2111C1795DA003C6E0B /* QuestionTableViewCell.m in Sources */,
+				E45CB2071C178E14003C6E0B /* QuestionSearchViewController.m in Sources */,
+				E45CB20B1C179158003C6E0B /* User.m in Sources */,
 				E45CB1FE1C163D84003C6E0B /* OAuthViewController.m in Sources */,
 				E45CB2041C164EDC003C6E0B /* CheeseTableViewController.m in Sources */,
+				E45CB2151C1797B8003C6E0B /* StackWebService.m in Sources */,
 				E45CB1E41C162AF9003C6E0B /* AppDelegate.m in Sources */,
+				E45CB2091C179149003C6E0B /* Question.m in Sources */,
 				E45CB1E11C162AF9003C6E0B /* main.m in Sources */,
 				E45CB1FB1C162C5B003C6E0B /* HamburgerViewController.m in Sources */,
 			);
